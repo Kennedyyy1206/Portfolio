@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- 
+  The doctype tells the browser "this is a modern HTML5 page".
+  Always the very first line.
+-->
+<html lang="en">
+<!-- lang="en" helps screen readers and search engines know the page language. -->
+
+<head>
+  <!-- The <head> holds info ABOUT the page. Nothing in here shows up on screen
+       except the title (which appears in the browser tab). -->
+
+  <meta charset="UTF-8" />
+  <!-- charset UTF-8 lets you use special characters (é, ñ, emojis) without them breaking. -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- This line makes the page fit phone screens. Without it, your site looks
+       tiny and zoomed out on mobile. freeCodeCamp checks for this too. -->
+
+  <meta name="description" content="Portfolio of Your Name, an aspiring web developer." />
+  <!-- The description is what Google shows under your link. Write 1 sentence about you. -->
+
+  <title>Kennedyyyyy | Portfolio</title>
+  <!-- Shows in the browser tab. Use your real name so clients find you. -->
+
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Connects your CSS file. href must match the file name EXACTLY (case-sensitive on GitHub). -->
+</head>
+
+<body>
+  <!-- Everything you see on the page lives inside <body>. -->
+
+
+  <!-- ============ NAVBAR ============ -->
+  <header>
+    <!-- <header> is a "semantic" tag: it tells the browser (and screen readers)
+         this is the top part of the page. Better than a plain <div>. -->
+
+    <nav id="navbar">
+      <!-- <nav> = a group of navigation links.
+           id="navbar" is required by the freeCodeCamp portfolio tests. An id must be
+           UNIQUE: use it once per page only. -->
+
+      <a href="#welcome-section" class="logo">Kennedy | Portfolio</a>
+      <!-- href="#something" is an "anchor link": clicking it scrolls to the element
+           with that same id further down the page. No JavaScript needed. -->
+
+      <ul>
+        <!-- <ul> is an unordered list. Navigation links are traditionally a list,
+             because a menu is really just a list of places to go. -->
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- To add a new link: copy one <li> line, change the href to a section id
+             that exists below, and change the text. -->
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <!-- <main> wraps the unique content of your page. Only use it ONCE. -->
+
+
+    <!-- ============ WELCOME / HERO SECTION ============ -->
+    <section id="welcome-section">
+      <!-- <section> groups related content. Give each one an id so the navbar can link to it. -->
+
+      <h1>Hi, I'm Kenneth Estacio! Nice to meet you.</h1>
+      <!-- <h1> is the main title. Use only ONE h1 per page. It's the most important heading. -->
+
+      <p>I'm a student learning web development. I like building things that work and look clean.</p>
+      <!-- <p> = paragraph. Replace this with 1-2 honest sentences about you.
+           Tip: managers prefer real and specific over "passionate dynamic go-getter". -->
+
+      <a href="#projects" class="button">See my projects</a>
+      <!-- class="button" is a label we'll use in CSS to style this link like a button.
+           Classes CAN be reused on many elements (unlike ids). -->
+    </section>
+
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about">
+      <h2>About me</h2>
+      <!-- <h2> = a section heading. Order matters: h1 -> h2 -> h3. Don't skip levels. -->
+
+      <p>
+        I study in Holy Angel University, a 2nd Year student in the field of Information Technology Web-Development. I'm still trying to improve my skills here in IT because I do lack MANY things right now. If I give time and dedication to my work, I know that I'll be surpassing my limits even further.
+      </p>
+
+      <h3>Skills</h3>
+      <!-- <h3> sits under <h2>, like a sub-heading. -->
+
+      <ul class="skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript (learning)</li>
+        <li>Git and GitHub(learning)</li>
+        <!-- Only list what you truly know. Being honest about "learning" is fine
+             and looks better than a long list you can't back up. -->
+      </ul>
+    </section>
+
+
+    <!-- ============ PROJECTS SECTION ============ -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- Each project is one <article>. An <article> is a self-contained piece of content.
+           class="project-tile" is required by freeCodeCamp (they check for at least 4 tiles).
+           Copy-paste the whole <article> block to add more projects. -->
+
+      <article class="project-tile">
+        <img src="Tribute-page.png" alt="Screenshot of my tribute page" />
+        <!-- <img> shows a picture.
+             src = where the image file is (put images in an "images" folder).
+             alt = text description. REQUIRED: it's read aloud for blind users and
+             shows if the image fails to load. Describe what's in the picture. -->
+
+        <h3>Tribute Page</h3>
+        <p>A page honoring ate Divine, the AUTHOR of MSA.</p>
+
+        <a href="https://github.com/Kennedyyy1206/Tribute-page" target="_blank" rel="noopener">
+          View on GitHub
+        </a>
+        <!-- target="_blank" opens the link in a NEW tab, so visitors don't leave your portfolio.
+             rel="noopener" is a security safety for new-tab links. Always pair them. -->
+      </article>
+
+      <article class="project-tile">
+        <img src="Survey pic.png" alt="Screenshot of my survey form" />
+        <h3>Survey Form</h3>
+        <p>Simple survey form for Mom and Dad's shop.</p>
+        <a href="https://github.com/Kennedyyy1206/Survey-form" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="project-tile">
+        <img src="Products.png" alt="Screenshot of my product landing page" />
+        <h3>Product Landing Page</h3>
+        <p>A product landing page about my Mother and Dad's business on Dishwashing Liquid</p>
+        <a href="https://github.com/Kennedyyy1206/Product-landing-page" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="project-tile">
+        <img src="techdoc.png" alt="Screenshot of my technical documentation page" />
+        <h3>Technical Documentation</h3>
+        <p>A documentation about Mobile Legends Basics, Strategies, and DO'S when you're a beginner.</p>
+        <a href="https://github.com/Kennedyyy1206/Technical-document" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <!-- LATER IDEA: once you know JavaScript, we can turn these tiles into a slider
+           that moves to the next project when you click. For now, plain tiles are enough. -->
+    </section>
+
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Let's see if we can negotiate with something ye?</p>
+
+      <ul>
+        <li><a href="mailto:kensukishima05@gmail.com">kensukishima05@gmail.com</a></li>
+        <!-- mailto: opens the visitor's email app with your address filled in. -->
+
+        <li>
+          <a id="profile-link" href="https://github.com/Kennedyyy1206" target="_blank" rel="noopener">GitHub</a>
+          <!-- id="profile-link" is also needed for the freeCodeCamp test.
+               It must open in a new tab, which is why target="_blank" is here. -->
+        </li>
+
+        <li><a href="https://www.linkedin.com/in/kenneth-estacio-071b27440/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <!-- <footer> = the bottom of the page. Usually copyright and small info. -->
+    <p>&copy; 2026 Your Name</p>
+    <!-- &copy; is an "HTML entity". It prints the © symbol. -->
+  </footer>
+
+</body>
+</html>

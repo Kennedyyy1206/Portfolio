@@ -1,0 +1,152 @@
+/* ===== BASICS =====
+   "*" selects EVERYTHING. box-sizing: border-box makes padding count inside an
+   element's width, so layouts don't break unexpectedly. Beginners hit this a lot. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling when you click a navbar link (the #about etc. anchors). */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styles for the whole page. Everything inside <body> inherits the font and color. */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;        /* space between lines of text; 1.5-1.7 is easy to read */
+  color: #222;
+  background-color: #fafafa;
+}
+
+/* ===== NAVBAR =====
+   "#navbar" targets the element with id="navbar". */
+#navbar {
+  position: fixed;          /* stays at the top even when you scroll */
+  top: 0;
+  width: 100%;
+  display: flex;            /* flexbox puts children side by side in a row */
+  justify-content: space-between;  /* logo on the left, links on the right */
+  align-items: center;      /* centers them vertically */
+  padding: 12px 24px;
+  background-color: #1f3a5f;
+}
+
+#navbar a {
+  color: white;
+  text-decoration: none;    /* removes the default underline */
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;         /* removes the bullet points */
+  gap: 20px;                /* space between the links */
+}
+
+#navbar a:hover {           /* ":hover" = when the mouse is over it */
+  text-decoration: underline;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+/* ===== SECTIONS =====
+   Every section gets the same width limit and spacing. */
+section {
+  max-width: 800px;         /* stops text from stretching too wide on big screens */
+  margin: 0 auto;           /* "auto" on the sides centers the block */
+  padding: 80px 20px 40px;  /* the 80px top leaves room for the fixed navbar */
+}
+
+h2 {
+  margin-bottom: 16px;
+  color: #1f3a5f;
+}
+
+/* ===== WELCOME SECTION ===== */
+#welcome-section {
+  min-height: 100vh;        /* vh = viewport height, so 100vh fills the whole screen */
+  display: flex;
+  flex-direction: column;   /* stack children top to bottom */
+  justify-content: center;
+}
+
+#welcome-section h1 {
+  font-size: 2.5rem;        /* rem scales with the user's browser font setting */
+  margin-bottom: 12px;
+}
+
+#welcome-section p {
+  margin-bottom: 24px;
+}
+
+/* ".button" targets class="button" in the HTML. */
+.button {
+  align-self: flex-start;   /* keeps the button its own size instead of full width */
+  padding: 10px 20px;
+  background-color: #1f3a5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #2f5a94;
+}
+
+/* ===== SKILLS LIST ===== */
+.skills {
+  margin-left: 20px;        /* keeps the bullet points visible and indented */
+}
+
+/* ===== PROJECTS =====
+   Each .project-tile is one project. */
+.project-tile {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.project-tile img {
+  width: 100%;              /* image fills the tile's width */
+  height: auto;             /* keeps the image proportions */
+  margin-bottom: 12px;
+}
+
+.project-tile a {
+  color: #1f3a5f;
+}
+
+/* ===== CONTACT ===== */
+#contact ul {
+  list-style: none;
+}
+
+#contact a {
+  color: #1f3a5f;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1f3a5f;
+  color: white;
+}
+
+/* ===== MOBILE =====
+   A "media query" applies styles ONLY when the screen is 600px wide or less. */
+@media (max-width: 600px) {
+  #navbar {
+    flex-direction: column; /* stack logo above links on small screens */
+    gap: 8px;
+  }
+
+  #welcome-section h1 {
+    font-size: 2rem;
+  }
+}
