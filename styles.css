@@ -1,148 +1,209 @@
-/* ===== BASICS =====
-   "*" selects EVERYTHING. box-sizing: border-box makes padding count inside an
-   element's width, so layouts don't break unexpectedly. Beginners hit this a lot. */
+
+:root {
+  --green-dark: #1b4d2b;
+  --green: #2e7d32;
+  --green-light: #e8f5e9;
+  --yellow: #f4c430;
+  --cream: #fffdf3;
+  --text: #222;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Smooth scrolling when you click a navbar link (the #about etc. anchors). */
 html {
   scroll-behavior: smooth;
 }
 
-/* Styles for the whole page. Everything inside <body> inherits the font and color. */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;        /* space between lines of text; 1.5-1.7 is easy to read */
-  color: #222;
-  background-color: #fafafa;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--cream) linear-gradient(180deg, var(--green-light) 0, var(--cream) 100vh) no-repeat;
 }
 
-/* ===== NAVBAR =====
-   "#navbar" targets the element with id="navbar". */
 #navbar {
-  position: fixed;          /* stays at the top even when you scroll */
+  position: fixed;
   top: 0;
   width: 100%;
-  display: flex;            /* flexbox puts children side by side in a row */
-  justify-content: space-between;  /* logo on the left, links on the right */
-  align-items: center;      /* centers them vertically */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px 24px;
-  background-color: #1f3a5f;
+  background-color: var(--green-dark);
+  border-bottom: 3px solid var(--yellow);
+  z-index: 10;
 }
 
 #navbar a {
   color: white;
-  text-decoration: none;    /* removes the default underline */
+  text-decoration: none;
 }
 
 #navbar ul {
   display: flex;
-  list-style: none;         /* removes the bullet points */
-  gap: 20px;                /* space between the links */
+  list-style: none;
+  gap: 20px;
 }
 
-#navbar a:hover {           /* ":hover" = when the mouse is over it */
-  text-decoration: underline;
+#navbar a:hover {
+  color: var(--yellow);
 }
 
 .logo {
   font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--yellow) !important;
 }
 
-/* ===== SECTIONS =====
-   Every section gets the same width limit and spacing. */
 section {
-  max-width: 800px;         /* stops text from stretching too wide on big screens */
-  margin: 0 auto;           /* "auto" on the sides centers the block */
-  padding: 80px 20px 40px;  /* the 80px top leaves room for the fixed navbar */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
 }
 
 h2 {
-  margin-bottom: 16px;
-  color: #1f3a5f;
+  margin-bottom: 20px;
+  color: var(--green-dark);
 }
 
-/* ===== WELCOME SECTION ===== */
+h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  margin-top: 6px;
+  background-color: var(--yellow);
+  border-radius: 2px;
+}
+
 #welcome-section {
-  min-height: 100vh;        /* vh = viewport height, so 100vh fills the whole screen */
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;   /* stack children top to bottom */
+  flex-direction: column;
   justify-content: center;
 }
 
 #welcome-section h1 {
-  font-size: 2.5rem;        /* rem scales with the user's browser font setting */
+  font-size: 2.5rem;
   margin-bottom: 12px;
+  color: var(--green-dark);
+  padding-left: 14px;
+  border-left: 6px solid var(--yellow);
 }
 
 #welcome-section p {
   margin-bottom: 24px;
+  font-size: 1.1rem;
 }
 
-/* ".button" targets class="button" in the HTML. */
 .button {
-  align-self: flex-start;   /* keeps the button its own size instead of full width */
-  padding: 10px 20px;
-  background-color: #1f3a5f;
-  color: white;
+  align-self: flex-start;
+  padding: 12px 24px;
+  background-color: var(--yellow);
+  color: var(--green-dark);
+  font-weight: bold;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
 .button:hover {
-  background-color: #2f5a94;
+  background-color: #ffd54f;
+  transform: translateY(-2px);
 }
 
-/* ===== SKILLS LIST ===== */
 .skills {
-  margin-left: 20px;        /* keeps the bullet points visible and indented */
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* ===== PROJECTS =====
-   Each .project-tile is one project. */
+.skills li {
+  padding: 6px 14px;
+  background-color: var(--green-light);
+  border: 1px solid var(--green);
+  border-radius: 20px;
+  color: var(--green-dark);
+}
+
 .project-tile {
   margin-bottom: 24px;
   padding: 16px;
   background-color: white;
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid var(--green);
   border-radius: 6px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(27, 77, 43, 0.15);
+  border-left-color: var(--yellow);
 }
 
 .project-tile img {
-  width: 100%;              /* image fills the tile's width */
-  height: auto;             /* keeps the image proportions */
+  width: 100%;
+  height: auto;
   margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.project-tile h3 {
+  color: var(--green-dark);
+  margin-bottom: 4px;
 }
 
 .project-tile a {
-  color: #1f3a5f;
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--green);
+  font-weight: bold;
 }
 
-/* ===== CONTACT ===== */
+.project-tile a:hover {
+  color: var(--green-dark);
+}
+
 #contact ul {
   list-style: none;
 }
 
-#contact a {
-  color: #1f3a5f;
+#contact li {
+  margin-bottom: 6px;
 }
 
-/* ===== FOOTER ===== */
+#contact a {
+  color: var(--green);
+  font-weight: bold;
+}
+
+#contact a:hover {
+  color: var(--green-dark);
+  text-decoration-color: var(--yellow);
+}
+
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #1f3a5f;
+  background-color: var(--green-dark);
+  border-top: 3px solid var(--yellow);
   color: white;
 }
 
-/* ===== MOBILE =====
-   A "media query" applies styles ONLY when the screen is 600px wide or less. */
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
 @media (max-width: 600px) {
   #navbar {
-    flex-direction: column; /* stack logo above links on small screens */
+    flex-direction: column;
     gap: 8px;
   }
 
@@ -150,3 +211,4 @@ footer {
     font-size: 2rem;
   }
 }
+
